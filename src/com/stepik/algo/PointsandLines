@@ -64,28 +64,30 @@ public class PointsandLines implements Comparable<PointsandLines> {
     private static int runLeft(int i, List<PointsandLines> list) { // Points point
         int l = 0;
         int r = list.size();
-        while (l <= r) {
+        while (l <= r ) {
             int m = (l + r) / 2;
             if (m >= list.size()) return list.size() - 1;
             else if (m < 0) return -1;
-            else if (l == 0 && r == 0) {
+           // else if (l == 0 && r == 0) {
 
-                if (list.get(m).a > i) return -1;
+               // if (list.get(m).a > i) return -1;
 
 
-                else return m;
-            }
+               // else return m;
+           // }
             if (list.get(m).a == i) {
-                if ((m + 1) < list.size() && (m - 1) >= 0) {
+                if ((m + 1) < list.size() ) {
                     if (list.get(m + 1).a == i) {
                         l = m + 1;
-                    } else return m;
-                } else return m;
-
+                    }
+                    else return m;
+                }
+                else return m;
 
             } else if (list.get(m).a > i) {
                 r = m - 1;
             } else l = m + 1;
+            if (r < 0) return -1;
         }
         return (r + l)/2;
     }
@@ -95,24 +97,18 @@ public class PointsandLines implements Comparable<PointsandLines> {
         int r = list.size();
         while (l <= r) {
             int m = (l + r) / 2;
-            if (l == r) return m;
+//            if (l == r) return m;
             if (m >= list.size()) return list.size() - 1;
             else if (m < 0) return -1;
-            else if (l == 0 && r == 0) {
 
-
-                if (list.get(m).b >= i)
-                    return -1;
-                else return m;
-            }
-
-            if (list.get(m).b == i) {
+            if (list.get(m).b >= i) {
                 r = m - 1;
-            } else if (list.get(m).b > i) {
-                r = m - 1;
+
             } else l = m + 1;
+        if ( r < 0) return -1;
         }
-        return -1;
+
+        return (l + r)/2;
     }
 
     private static void Test() {
@@ -152,10 +148,10 @@ public class PointsandLines implements Comparable<PointsandLines> {
                 for (int j = k; j < listLines.size(); j++) {
 
 
-                    if (listPoints.get(i).coord >= listLines.get(j).a && listPoints.get(i).coord <= listLines.get(j).b) {
-                        listPoints.get(i).linesNumber++;
+                    if (points.get(i).coord >= listLines.get(j).a && points.get(i).coord <= listLines.get(j).b) {
+                        points.get(i).linesNumber++;
                     } else {
-                        if ((i + 1) < listPoints.size() && listPoints.get(i + 1).coord > listPoints.get(i).coord) {
+                        if ((i + 1) < points.size() && points.get(i + 1).coord > points.get(i).coord) {
                             k = j;
                             continue nextPoint;
                         } else {
@@ -164,7 +160,7 @@ public class PointsandLines implements Comparable<PointsandLines> {
                     }
                 }
             }
-            listPoints.sort(Comparator.comparingInt(x -> x.place));
+            points.sort(Comparator.comparingInt(x -> x.place));
             for (int i = 0; i < points.size(); i++) {
                 if (points.get(i).coord == listPoints.get(i).coord) {
                     System.out.println("TRUE");
@@ -173,9 +169,11 @@ public class PointsandLines implements Comparable<PointsandLines> {
                     System.out.println("ОСТОРОЖНО, ЗАЛУПА!!!!!");
                     for (PointsandLines listLine : listLines) {
                         System.out.print(listLine.toString()+"         ");
+
                     }
+                    System.out.println();
                     for (int j = 0; j < points.size(); j++) {
-                        System.out.print( points.get(j).coord+ "       "+ listPoints.get(i).coord);
+                        System.out.print( points.get(j).coord+ "       "+ listPoints.get(j).coord);
                     }
                 }
             }
@@ -186,37 +184,37 @@ public class PointsandLines implements Comparable<PointsandLines> {
 
     public static void main(String[] args) throws IOException {
 
-        Test();
 
-//            List<PointsandLines> listLines = new ArrayList<>();
-//            List<Points> listPoints = new ArrayList<>();
-//            int n, m;
-//            try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-//                String[] inputLine1 = reader.readLine().split(" ");
-//                n = Integer.parseInt(inputLine1[0]);
-//                m = Integer.parseInt(inputLine1[1]);
-//                for (int i = 0; i < n; i++) {
-//                    String[] inputLineN = reader.readLine().split(" ");
-//                    listLines.add(new PointsandLines(Integer.parseInt(inputLineN[0]), Integer.parseInt(inputLineN[1])));
-//                }
-//
-//                String[] inputLineM = reader.readLine().split(" ");
-//                for (int i = 0; i < m; i++) {
-//                    listPoints.add(new Points(i, Integer.parseInt(inputLineM[i])));
-//                }
-//            }
-//            listLines.sort(Comparator.comparingInt(x -> x.a));
-////            listPoints.sort(Comparator.comparingInt(x -> x.coord));
-//            List<PointsandLines> listLinesR = new ArrayList<>(listLines);
-//            listLinesR.sort(Comparator.comparingInt(x -> x.b));
-//
-//            int left;
-//            int right;
-//            for (Points point : listPoints) {
-//                left = runLeft(point.coord,listLines) + 1;
-//                right = runRight(point.coord, listLinesR) + 1;
-//                point.linesNumber = left - right;
-//            }
+
+            List<PointsandLines> listLines = new ArrayList<>();
+            List<Points> listPoints = new ArrayList<>();
+            int n, m;
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+                String[] inputLine1 = reader.readLine().split(" ");
+                n = Integer.parseInt(inputLine1[0]);
+                m = Integer.parseInt(inputLine1[1]);
+                for (int i = 0; i < n; i++) {
+                    String[] inputLineN = reader.readLine().split(" ");
+                    listLines.add(new PointsandLines(Integer.parseInt(inputLineN[0]), Integer.parseInt(inputLineN[1])));
+                }
+
+                String[] inputLineM = reader.readLine().split(" ");
+                for (int i = 0; i < m; i++) {
+                    listPoints.add(new Points(i, Integer.parseInt(inputLineM[i])));
+                }
+            }
+            listLines.sort(Comparator.comparingInt(x -> x.a));
+//            listPoints.sort(Comparator.comparingInt(x -> x.coord));
+            List<PointsandLines> listLinesR = new ArrayList<>(listLines);
+            listLinesR.sort(Comparator.comparingInt(x -> x.b));
+
+            int left;
+            int right;
+            for (Points point : listPoints) {
+                left = runLeft(point.coord,listLines) + 1;
+                right = runRight(point.coord, listLinesR) + 1;
+                point.linesNumber = left - right;
+            }
 
 
 //        for (Points P: listPoints
@@ -254,10 +252,10 @@ public class PointsandLines implements Comparable<PointsandLines> {
 //                }
 //            }
         //listPoints.sort(Comparator.comparingInt(x ->x.place));
-//            for (Points P: listPoints
-//            ) {
-//                System.out.print(P.linesNumber + " ");
-//            }
+            for (Points P: listPoints
+            ) {
+                System.out.print(P.linesNumber + " ");
+            }
 
     }
 
