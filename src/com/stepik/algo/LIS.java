@@ -1,9 +1,8 @@
-package com.stepik.algo;
+
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class LIS {
     private void Run() throws IOException {
