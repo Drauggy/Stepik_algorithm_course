@@ -138,23 +138,7 @@ Quicksort3 - быстрая сортировка с выбором случай�
     }
 
     public static void main(String[] args) {
-//        int[] massive;
-//        String input;
-//        try (Scanner scanner = new Scanner(System.in)) {
-//            System.out.println("Введите элементы массива через пробел");
-//            int massiveLength = scanner.nextInt();
-//            massive = new int[massiveLength];
-//            scanner.nextLine();
-//            input = scanner.nextLine();
-//        }
-//        String[] in = input.split(" ");
-//        for (int i = 0; i < massive.length; i++) {
-//            massive[i] = Integer.parseInt(in[i]);
-//        }
-//        // long start = System.currentTimeMillis();
-//        System.out.println(Arrays.toString(new QuickSort().quickSort(massive, 0, massive.length)));
-//        //long end = System.currentTimeMillis();
-//        //System.out.println("Время исполнения: " + (end - start));
+
         new quicksort().Test();
 
     }
