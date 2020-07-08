@@ -1,4 +1,4 @@
-package com.stepik.algo;
+
 
 import java.util.Scanner;
 
