@@ -1,5 +1,5 @@
 # Оглавление:
-* [Сертификат с отличием](https://github.com/Drauggy/Stepik_algorithm_course.wiki.git)
+* [Сертификат с отличием](https://github.com/Drauggy/Stepik_algorithm_course/wiki/Start-page)
 * **Задачи на числа Фибоначчи**
   * [Задача на числа Фибоначчи 1](https://github.com/Drauggy/Stepik_algorithm_course/blob/master/fibo.md)
   * [Задача на числа Фибоначчи 2](https://github.com/Drauggy/Stepik_algorithm_course/blob/master/fibo2.md)
