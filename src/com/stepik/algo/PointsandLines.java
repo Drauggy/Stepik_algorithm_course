@@ -23,14 +23,6 @@ public class PointsandLines implements Comparable<PointsandLines> {
         this.a = a;
     }
 
-    public int getB() {
-        return b;
-    }
-
-    public void setB(int b) {
-        this.b = b;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -71,13 +63,6 @@ public class PointsandLines implements Comparable<PointsandLines> {
             int m = (l + r) / 2;
             if (m >= list.size()) return list.size() - 1;
             else if (m < 0) return -1;
-            // else if (l == 0 && r == 0) {
-
-            // if (list.get(m).a > i) return -1;
-
-
-            // else return m;
-            // }
             if (list.get(m).a == i) {
                 if ((m + 1) < list.size()) {
                     if (list.get(m + 1).a == i) {
@@ -98,7 +83,7 @@ public class PointsandLines implements Comparable<PointsandLines> {
         int r = list.size();
         while (l <= r) {
             int m = (l + r) / 2;
-//            if (l == r) return m;
+
             if (m >= list.size()) return list.size() - 1;
             else if (m < 0) return -1;
 
@@ -165,7 +150,7 @@ public class PointsandLines implements Comparable<PointsandLines> {
                     System.out.println("TRUE");
 
                 } else {
-                    System.out.println("ОСТОРОЖНО, ЗАЛУПА!!!!!");
+                    System.out.println("ОСТОРОЖНО, ОШИБКА!!!!!");
                     for (PointsandLines listLine : listLines) {
                         System.out.print(listLine.toString() + "         ");
 
@@ -202,7 +187,7 @@ public class PointsandLines implements Comparable<PointsandLines> {
             }
         }
         listLines.sort(Comparator.comparingInt(x -> x.a));
-//            listPoints.sort(Comparator.comparingInt(x -> x.coord));
+
         List<PointsandLines> listLinesR = new ArrayList<>(listLines);
         listLinesR.sort(Comparator.comparingInt(x -> x.b));
 
@@ -213,43 +198,6 @@ public class PointsandLines implements Comparable<PointsandLines> {
             right = runRight(point.coord, listLinesR) + 1;
             point.linesNumber = left - right;
         }
-
-
-//        for (Points P: listPoints
-//             ) {
-//            for (PointsandLines listLine : listLines) {
-//                if (listLine.a <= P.coord) left++;
-//            }
-//            for (PointsandLines pointsandLines : listLinesR) {
-//                if (pointsandLines.b < P.coord) right++;
-//            }
-//            P.linesNumber = left - right;
-//            left = 0;
-//            right = 0;
-//        }
-
-//        int k = 0;
-//        nextPoint:
-//        for (int i = 0; i < listPoints.size(); i++) {
-//
-//
-//            for (int j = k; j < listLines.size(); j++) {
-//
-//
-//                if (listPoints.get(i).coord >= listLines.get(j).a && listPoints.get(i).coord <= listLines.get(j).b) {
-//                    listPoints.get(i).linesNumber++;
-//                } else {
-//                    if ((i + 1) < listPoints.size() && listPoints.get(i + 1).coord > listPoints.get(i).coord) {
-//                        k = j;
-//                        continue nextPoint;
-//                    }
-//                    else {
-//                        continue nextPoint;
-//                    }
-//                    }
-//                }
-//            }
-        //listPoints.sort(Comparator.comparingInt(x ->x.place));
         for (Points P : listPoints
         ) {
             System.out.print(P.linesNumber + " ");
@@ -264,30 +212,6 @@ public class PointsandLines implements Comparable<PointsandLines> {
 
         public Points(int place, int coord) {
             this.place = place;
-            this.coord = coord;
-        }
-
-        public int getLinesNumber() {
-            return linesNumber;
-        }
-
-        public void setLinesNumber(int linesNumber) {
-            this.linesNumber = linesNumber;
-        }
-
-        public int getPlace() {
-            return place;
-        }
-
-        public void setPlace(int place) {
-            this.place = place;
-        }
-
-        public int getCoord() {
-            return coord;
-        }
-
-        public void setCoord(int coord) {
             this.coord = coord;
         }
 
