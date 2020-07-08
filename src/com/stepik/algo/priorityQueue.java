@@ -1,21 +1,15 @@
-package com.stepik.algo;
-
-        import java.io.BufferedReader;
-        import java.io.IOException;
-        import java.io.InputStreamReader;
-        import java.util.ArrayList;
-        import java.util.Arrays;
-        import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 
 public class priorityQueue {
-    int[] massive;
+    private int[] massive;
     int elementsCount;
 
-    List<Integer> Maximums = new ArrayList<>();
+    private List<Integer> Maximums = new ArrayList<>();
 
 
     private void insert(int number) {
-        int[] copy;
+
         if (massive == null) {
             massive = new int[1000000];
 
@@ -25,9 +19,6 @@ public class priorityQueue {
         } else {
 
 
-//            copy = Arrays.copyOf(massive, massive.length + 1);
-//            massive = copy;
-//            massive[massive.length - 1] = number;
             massive[elementsCount] = number;
             elementsCount ++;
 
@@ -154,7 +145,7 @@ public class priorityQueue {
         System.out.println("Errors :" + errorCount);
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         priorityQueue queue = new priorityQueue();
         long startTime = System.currentTimeMillis();
 //        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

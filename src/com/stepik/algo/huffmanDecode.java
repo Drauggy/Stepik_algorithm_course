@@ -1,6 +1,9 @@
-package com.stepik.algo;
 
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 
 public class huffmanDecode {
     private static String inputCode;
@@ -10,7 +13,7 @@ public class huffmanDecode {
        String code;
 
 
-        public Node(String letter, String code) {
+        Node(String letter, String code) {
             this.letter = letter;
             this.code = code;
         }

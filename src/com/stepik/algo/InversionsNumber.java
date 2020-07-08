@@ -46,7 +46,7 @@ public class InversionsNumber {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        // System.out.println("Введите элементы массива через пробел");
+       // System.out.println("Введите элементы массива через пробел");
         int massiveLength = scanner.nextInt();
         int[] massive = new int[massiveLength];
         scanner.nextLine();
@@ -55,8 +55,8 @@ public class InversionsNumber {
         for (int i = 0; i < massive.length; i++) {
             massive[i] = Integer.parseInt(in[i]);
         }
-        // long start = System.currentTimeMillis();
-        new InversionsNumber().mergeSort(massive, 0, massive.length);
+       // long start = System.currentTimeMillis();
+       new InversionsNumber().mergeSort(massive, 0, massive.length);
         //long end = System.currentTimeMillis();
         //System.out.println("Время исполнения: " + (end - start));
         System.out.println(count);

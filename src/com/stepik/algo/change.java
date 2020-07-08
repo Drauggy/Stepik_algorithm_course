@@ -1,6 +1,9 @@
-package com.stepik.algo;
 
-import java.util.*;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 public class change {
     private static int number;
@@ -9,14 +12,14 @@ public class change {
         Scanner scanner = new Scanner(System.in);
         int input = scanner.nextInt();
         List<Integer> consts = List.of(25,10,5,1);
-        for (int i = 0; i < consts.size(); i++) {
-            int modus = input % consts.get(i);
-            if (modus >= 0 && modus < input)  {
-                number = input / consts.get(i);
-                coins.put(consts.get(i),number);
-                input -=consts.get(i)*number;
+            for (Integer aConst : consts) {
+                int modus = input % aConst;
+                if (modus >= 0 && modus < input) {
+                    number = input / aConst;
+                    coins.put(aConst, number);
+                    input -= aConst * number;
+                }
             }
-        }
             for (Map.Entry<Integer,Integer> entry: coins.entrySet()
                  ) {
                 System.out.print("Монеты равенством: "+entry.getKey()+"  Количество---  "+entry.getValue()+"\n");

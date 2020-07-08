@@ -1,8 +1,11 @@
-package com.stepik.algo;
+
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 
 public class unlimBackpack {
     private static  BigDecimal result = BigDecimal.ZERO;
@@ -32,16 +35,15 @@ public class unlimBackpack {
 //        ) {
 //            System.out.println(Arrays.toString(arr));
 //        }
-        for (int i = 0; i < items.size(); i++) {
+        for (double[] item : items) {
             if (packageVolume == 0) break;
-            if (items.get(i)[1] > packageVolume) {
-                result = result.add(BigDecimal.valueOf(packageVolume).multiply(BigDecimal.valueOf(items.get(i)[0])
-                        .divide(BigDecimal.valueOf(items.get(i)[1]),7, RoundingMode.HALF_UP)));
+            if (item[1] > packageVolume) {
+                result = result.add(BigDecimal.valueOf(packageVolume).multiply(BigDecimal.valueOf(item[0])
+                        .divide(BigDecimal.valueOf(item[1]), 7, RoundingMode.HALF_UP)));
                 break;
-            }
-            else {
-                result = result.add(BigDecimal.valueOf(items.get(i)[0]));
-                packageVolume -= items.get(i)[1];
+            } else {
+                result = result.add(BigDecimal.valueOf(item[0]));
+                packageVolume -= item[1];
             }
         }
 

@@ -1,43 +1,28 @@
-package com.stepik.algo;
 
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
 
 public class pointsone {
-    private static List<int[]> input = new ArrayList<int[]>();
+    private static List<int[]> input = new ArrayList<>();
     private static int pointsNumber;
     private static int optimPoints = 1;
     private static List<Integer> ouput = new ArrayList<>();
 
-//    private static void sort (List<int[]> in) {
-//        boolean isSorted = false;
-//        while (!isSorted) {
-//            isSorted = true;
-//            for (int i = 0; i < in.size() - 1; i++) {
-//               if (in.get(i)[0] > in.get(i + 1)[0]) {
-//                   int a = in.get(i + 1)[0];
-//                   int b = in.get((i + 1))[1];
-//                   in.get(i + 1)[0] = in.get(i)[0];
-//                   in.get(i + 1)[1] = in.get(i)[1];
-//                   in.get(i)[0] = a;
-//                   in.get(i)[1] = b;
-//                   isSorted = false;
-//               }
-//            }
-//        }
-//
-//    }
 
     private static void optimizePoints(List<int[]> in) {
-        ouput.add(in.get(in.size()-1)[0]);
-        for (int i = in.size() - 2; i >=  0; i --) {
-            if (ouput.get(ouput.size() - 1) <= in.get(i)[1] && ouput.get(ouput.size() - 1) >= in.get(i)[0] ) {
-            }
-            else  {
-                optimPoints ++;
+        ouput.add(in.get(in.size() - 1)[0]);
+        for (int i = in.size() - 2; i >= 0; i--) {
+            if (ouput.get(ouput.size() - 1) <= in.get(i)[1] && ouput.get(ouput.size() - 1) >= in.get(i)[0]) {
+            } else {
+                optimPoints++;
                 ouput.add(in.get(i)[0]);
             }
         }
     }
+
     public static void main(String[] args) {
         List<String> inputNumbers = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
@@ -59,8 +44,8 @@ public class pointsone {
 //        }
         optimizePoints(input);
         System.out.println(optimPoints);
-        for (int i: ouput
-             ) {
+        for (int i : ouput
+        ) {
             System.out.print(i + " ");
         }
 

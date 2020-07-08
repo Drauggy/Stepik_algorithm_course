@@ -1,5 +1,3 @@
-package com.stepik.algo;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,12 +8,12 @@ public class BinarySearch {
     private final int[] inputMassive;
     private final int[] massive4Search;
 
-    public BinarySearch(int[][] input) {
+    private BinarySearch(int[][] input) {
         this.inputMassive = input[0];
         this.massive4Search = input[1];
     }
 
-    public BinarySearch(int[] input, int[] search) {
+    private BinarySearch(int[] input, int[] search) {
         this.inputMassive = input;
         this.massive4Search = search;
     }
@@ -51,8 +49,8 @@ public class BinarySearch {
         }
         System.out.println(Arrays.toString(input) + Arrays.toString(search));
         BinarySearch binarySearch = new BinarySearch(input,search);
-        for (int i = 0; i <search.length ; i++) {
-            System.out.print(binarySearch.run(search[i]) + " ");
+        for (int value : search) {
+            System.out.print(binarySearch.run(value) + " ");
         }
 
 
