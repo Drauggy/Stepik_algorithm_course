@@ -7,27 +7,18 @@ public class priorityQueue {
 
     private List<Integer> Maximums = new ArrayList<>();
 
-
     private void insert(int number) {
 
         if (massive == null) {
             massive = new int[1000000];
-
             massive[0] = number;
-            elementsCount ++;
+            elementsCount++;
 
         } else {
-
-
             massive[elementsCount] = number;
-            elementsCount ++;
-
-
+            elementsCount++;
             switchUP(massive);
-
         }
-
-
     }
 
     private void switchUP(int[] mas) {
@@ -45,7 +36,6 @@ public class priorityQueue {
 
             } else isSorted = true;
         }
-
     }
 
     private int findParent(int i) {
@@ -64,7 +54,7 @@ public class priorityQueue {
 
     private void ExtractMax() {
         int max = this.massive[0];
-        elementsCount --;
+        elementsCount--;
 
         Maximums.add(max);
         if (elementsCount == 0) {
@@ -75,14 +65,13 @@ public class priorityQueue {
 
         this.massive[0] = this.massive[elementsCount];
 
-       // massive = Arrays.copyOf(this.massive, massive.length - 1);
+
         int switcher = this.massive[0];
         int switcherPos = 0;
         boolean isSorted = false;
         while (!isSorted) {
             int leftChild = findLeftChild(switcherPos);
             int rightChild = findRightChild(switcherPos);
-            int length = this.massive.length;
             int interMax;
             if (leftChild >= elementsCount) {
                 break;
@@ -127,17 +116,17 @@ public class priorityQueue {
             test.add(rand);
 
         }
-       // System.out.println(test.toString());
-       // System.out.println(Arrays.toString(this.massive));
+        // System.out.println(test.toString());
+        // System.out.println(Arrays.toString(this.massive));
         test.sort((i, j) -> j - i);
-       // System.out.println(test.toString());
+        // System.out.println(test.toString());
         for (int i = 0; i < test.size(); i++) {
             this.ExtractMax();
             if (test.get(i).equals(this.Maximums.get(i))) {
-              //  System.out.println("OK   " + "test " + test.get(i) + "---------massive:   " + this.Maximums.get(i));
+                //  System.out.println("OK   " + "test " + test.get(i) + "---------massive:   " + this.Maximums.get(i));
                 okCount++;
             } else {
-              //  System.out.println("ERROR!!!!!!!!!!!!!!!!!!+test    " + test.get(i) + "---------massive:   " + this.Maximums.get(i));
+                //  System.out.println("ERROR!!!!!!!!!!!!!!!!!!+test    " + test.get(i) + "---------massive:   " + this.Maximums.get(i));
                 errorCount++;
             }
         }
@@ -148,27 +137,6 @@ public class priorityQueue {
     public static void main(String[] args) {
         priorityQueue queue = new priorityQueue();
         long startTime = System.currentTimeMillis();
-//        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-//
-//        int operationsNumber = Integer.parseInt(reader.readLine());
-//
-//        for (int i = 0; i < operationsNumber; i++) {
-//            String str = reader.readLine();
-//            String[] input = str.split(" ");
-//            String key = input[0];
-//
-//            if (key.equals("Insert")) {
-//                int value = Integer.parseInt(input[1]);
-//                queue.insert(value);
-//            } else queue.ExtractMax();
-//
-//        }
-//        reader.close();
-//
-//
-//        for (int i : queue.Maximums) {
-//            System.out.println(i);
-//        }
 
         queue.Test();
         long endTime = System.currentTimeMillis();
