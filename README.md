@@ -3,7 +3,7 @@
 * **Задачи на числа Фибоначчи**
   * [Задача на числа Фибоначчи 1](https://github.com/Drauggy/Stepik_algorithm_course/blob/master/fibo.md)
   * [Задача на числа Фибоначчи 2](https://github.com/Drauggy/Stepik_algorithm_course/blob/master/fibo2.md)
-  * [Задача на числа Фибоначчи 3](https://github.com/Drauggy/Stepik_algorithm_course/blob/master/fibo3.md)
+  * [Задача на числа Фибоначчи повышенной сложности](https://github.com/Drauggy/Stepik_algorithm_course/blob/master/fibo3.md)
 * [Задача на наибольший общий делитель](https://github.com/Drauggy/Stepik_algorithm_course/blob/master/GCD.md)
 * [Задача на программирование: покрыть отрезки точками](https://github.com/Drauggy/Stepik_algorithm_course/blob/master/PointsAndLines.md)
 * [Задача на программирование: непрерывный рюкзак](https://github.com/Drauggy/Stepik_algorithm_course/blob/master/UB.md)
